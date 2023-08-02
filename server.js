@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 
+
 const app = express();
 
 app.use(cors());
@@ -32,6 +33,11 @@ const notes = [
   }
 ];
 let nextId = 3;
+
+app.get("/ping", (req, res) => {  
+  res.status(204);
+  res.end();
+});
 
 app.get("/notes", (req, res) => {  
   res.send(JSON.stringify(notes));
